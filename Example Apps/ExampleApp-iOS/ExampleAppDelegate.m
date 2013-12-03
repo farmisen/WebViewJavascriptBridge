@@ -73,9 +73,7 @@
 }
 
 - (void)loadExamplePage:(UIWebView*)webView {
-    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
-    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    [webView loadHTMLString:appHtml baseURL:nil];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"]  isDirectory:NO]]];
 }
 
 @end
